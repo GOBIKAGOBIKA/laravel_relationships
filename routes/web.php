@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Response;
+use App\Models\Phone;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   $user =  User::find(1);
+   $phone = new phone;
+   $phone->phone = "8888858888";
+
+   $user->phone()->update($phone->toArray());
+   return 'saved!'; 
 });
