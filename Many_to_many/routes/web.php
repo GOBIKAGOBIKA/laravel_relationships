@@ -17,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $role = Role::find(1);	
- 
     dd($role->users);
+});
+
+
+Route::get('/create', function () {
+$user = User::find(2);
+$roleIds = [1, 2];
+$user->roles()->attach($roleIds);
+return "true";
 });
